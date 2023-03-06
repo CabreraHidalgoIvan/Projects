@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EstadoTarea{% endblock %}
+
+{% block body %}
+    <h1>EstadoTarea</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ estado_tarea.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ estado_tarea.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ estado_tarea.descripcion }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_estado_tarea_index') }}" class="btn-back">back to list</a>
+
+    <a href="{{ path('app_estado_tarea_edit', {'id': estado_tarea.id}) }}" class="btn-save">edit</a>
+
+    {{ include('estado_tarea/_delete_form.html.twig') }}
+{% endblock %}

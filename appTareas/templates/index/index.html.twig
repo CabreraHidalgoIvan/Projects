@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tareas por hacer{% endblock %}
+
+{% block body %}
+    <h1>Filtrado de Tareas</h1>
+    {{ include('tarea/_filter.html.twig') }}
+    <h1>Tareas por hacer</h1>
+    {% include 'comunes/_mensajes.html.twig' %}
+
+    <table class="tab table table-striped table-dark">
+        <caption>Lista de tareas por hacer</caption>
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Usuario</th>
+            <th scope="col">Fecha Creación</th>
+            <th scope="col">Acciones</th>
+        </tr>
+        </thead>
+        <tbody class="bodyTable">
+        {% for index, tarea in tareas %}
+            <tr>
+                <th scope="row">{{ index + 1 }}</th>
+                <td>
+                    {{ tarea.nombre }}
+                </td>
+                <td class="descripcion">
+                    <p>{{ tarea.descripcion }}</p>
+                </td>
+
+                <td>
+                    {{ tarea.estado.nombre }}
+                </td>
+
+                <td>
+                    {{ tarea.usuario.nombre }}
+                </td>
+
+                <td>
+                    {{ tarea.creadoEn | tiempo }}
+                </td>
+                <td>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('app_tarea_edit', {'id': tarea.id}) }}" class="btn btn-edit">Editar</a>
+                    {% endif %}
+                    {% if not is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('app_tarea_editUser', {'id': tarea.id}) }}" class="btn btn-edit">Editar</a>
+                    {% endif %}
+                    {{ include('tarea/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">No hay tareas por hacer</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="mt-3">
+        {{ include('comunes/_paginacion.html.twig',
+            {
+                elementos_por_pagina: constant('App\\Controller\\IndexController::ELEMENTS_PER_PAGE'),
+                numero_total_elementos: tareas|length,
+                pagina_actual: pagina,
+            }) }}
+    </div>
+
+{% endblock %}

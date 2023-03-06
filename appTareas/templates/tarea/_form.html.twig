@@ -1,0 +1,4 @@
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}  {# novalidate -> elimina la validación de HTML5, en consecuencia se usara TWIG #}
+    {{ form_widget(form) }}
+    <button class="btn-edit">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

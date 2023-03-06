@@ -1,0 +1,15 @@
+{{ form_start(filtro_form, { 'attr': { 'class': 'form-inline mb-3' } }) }}
+<div class="form-group mr-3">
+    {{ form_label(filtro_form.nombre, 'Nombre:', { 'label_attr': { 'class': 'mr-2' } }) }}
+    {{ form_widget(filtro_form.nombre, { 'attr': { 'class': 'form-control mr-2' } }) }}
+</div>
+<div class="form-group mr-3">
+    {{ form_label(filtro_form.descripcion, 'Descripción:', { 'label_attr': { 'class': 'mr-2' } }) }}
+    {{ form_widget(filtro_form.descripcion, { 'attr': { 'class': 'form-control mr-2' } }) }}
+</div>
+<div class="form-group mr-3">
+    {{ form_label(filtro_form.estado, 'Estado:', { 'label_attr': { 'class': 'mr-2' } }) }}
+    {{ form_widget(filtro_form.estado, { 'attr': { 'class': 'form-control mr-2' } }) }}
+</div>
+<button type="submit" class="btn-back">Filtrar</button>
+{{ form_end(filtro_form) }}

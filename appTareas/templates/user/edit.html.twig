@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block body %}
+    <h1>Edit Users</h1>
+
+    {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_user_index') }}" class="btn-back">back to list</a>
+
+    <div>
+        <a href="{{ path('app_user_disable', {'id': user.id}) }}" class="btn-save">Deshabilitar</a>
+        <a href="{{ path('app_user_enable', {'id': user.id}) }}" class="btn-save">Habilitar</a>
+    </div>
+    {{ include('user/_delete_form.html.twig') }}
+{% endblock %}

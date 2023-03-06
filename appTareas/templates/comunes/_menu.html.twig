@@ -1,0 +1,58 @@
+<nav class="nav navbar navbar-expand-lg navbar-light bg-dark">
+    <a class="inicio navbar-brand" href="{{ path('app_index') }}">Inicio</a>
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="links collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            {% if is_granted('ROLE_ADMIN') %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ path('app_tarea_new') }}">
+                        Crear
+                    </a>
+                </li>
+            {% endif %}
+            {% if not is_granted('ROLE_ADMIN') %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ path('app_tarea_newUser') }}">
+                        Crear
+                    </a>
+                </li>
+            {% endif %}
+            {% if is_granted('ROLE_ADMIN') %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ path('app_user_index') }}">
+                        Usuarios
+                    </a>
+                </li>
+            {% endif %}
+
+            {% if is_granted('ROLE_ADMIN') %}
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ path('app_estado_tarea_index') }}">
+                    Estados
+                </a>
+            </li>
+            {% endif %}
+
+        </ul>
+    </div>
+    {%  if app.user %}
+    <div class=" logout collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ path('app_logout') }}">
+                    Cerrar sesión ({{ app.user.email }}) - ({{ app.user.ultimoAcces|date('d/m/Y H:i:s') }})
+                </a>
+            </li>
+        </ul>
+    </div>
+    {% endif %}
+</nav>

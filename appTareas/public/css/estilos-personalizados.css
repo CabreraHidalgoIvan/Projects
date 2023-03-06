@@ -1,0 +1,278 @@
+body {
+    background-color: #f8f8f8;
+}
+
+/* NAV */
+
+.nav {
+    background-color: #333;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ccc;
+    display: grid;
+    grid-template-columns: repeat(3, 5% 15% 80%);
+    grid-template-rows: 1fr;
+    grid-template-areas: "inicio links logout";
+}
+
+.inicio {
+    grid-area: inicio;
+}
+
+.links {
+    grid-area: links;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.nav a:hover {
+    color: lightskyblue;
+    animation-name: scale;
+    animation-duration: 0.5s;
+    animation-fill-mode: backwards;
+    transition: 0.5s;
+}
+
+.logout {
+    grid-area: logout;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+/* Table */
+h1 {
+    font-size: 36px;
+    color: #333;
+}
+
+.tab {
+
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    text-align: center;
+    align-items: center;
+}
+
+.tab .descripcion {
+    width: 40%;
+    text-align: center;
+    align-items: center;
+}
+
+.tab th, .tab td {
+    color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+/* Buttons Styles */
+
+.btn-new {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.btn-new:hover {
+    background-color: lightskyblue;
+    color: #333;
+    animation-name: rotate;
+    animation-duration: 0.5s;
+    transition: 0.5s;
+}
+
+
+.btn-back {
+    background-color: #333;
+    width: 100px;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.btn-back:hover {
+    background-color: lightskyblue;
+    color: #333;
+    animation-name: moveLeft;
+    animation-duration: 0.5s;
+    transition: 0.5s;
+}
+
+
+.btn-save {
+    background-color: #333;
+    width: 100px;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-bottom: 20px;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-save:hover {
+    background-color: lightcoral;
+    color: #333;
+    animation-name: moveRight;
+    animation-duration: 0.5s;
+    transition: 0.5s;
+}
+
+
+.btn-delete {
+    background-color: lightcoral;
+    width: 100px;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.btn-delete:hover {
+    background-color: red;
+    color: #fff;
+    animation-name: shake;
+    animation-duration: 0.5s;
+    transition: 1s;
+}
+
+
+.btn-edit {
+    background-color: lightskyblue;
+    width: 100px;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-bottom: 20px;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-edit:hover {
+    background-color: deepskyblue;
+    color: #fff;
+    animation-name: jump;
+    animation-duration: 0.5s;
+    transition: 0.5s;
+}
+
+
+/* Keyframes */
+
+@keyframes scale {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes moveLeft {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-10px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveRight {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    10% {
+        transform: translateX(-10px);
+    }
+    20% {
+        transform: translateX(-10px);
+    }
+    30% {
+        transform: translateX(10px);
+    }
+    40% {
+        transform: translateX(10px);
+    }
+    50% {
+        transform: translateX(-10px);
+    }
+    60% {
+        transform: translateX(-10px);
+    }
+    70% {
+        transform: translateX(10px);
+    }
+    80% {
+        transform: translateX(10px);
+    }
+    90% {
+        transform: translateX(-10px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}

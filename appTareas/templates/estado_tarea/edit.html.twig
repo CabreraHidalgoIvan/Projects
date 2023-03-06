@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit EstadoTarea{% endblock %}
+
+{% block body %}
+    <h1>Edit EstadoTarea</h1>
+
+    {{ include('estado_tarea/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_estado_tarea_index') }}" class="btn-back">back to list</a>
+
+    {{ include('estado_tarea/_delete_form.html.twig') }}
+{% endblock %}
