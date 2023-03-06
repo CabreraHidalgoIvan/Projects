@@ -16,16 +16,26 @@ Para utilizar appTareas necesitas tener instalado en tu ordenador:
 
 Para utilizar appTareas, sigue estos pasos:
 
-1. Descarga el código de la aplicación desde el repositorio de GitHub. Para ello, haz clic en el botón "Code" y
-   selecciona "Download ZIP". Descomprime el archivo ZIP en la carpeta donde quieras tener la aplicación.
-2. Abre una terminal en la carpeta de la aplicación y ejecuta el comando npm install. Esto instalará todas las
+1. Descarga el código de la aplicación desde el repositorio de GitHub. Para ello abre una terminal en la carpeta donde
+   quieres que se guarde el proyecto, y ejecuta el siguiente
+   comando: ````git clone https://github.com/CabreraHidalgoIvan/Projects.git````
+2. Abre una terminal en la carpeta de la aplicación y ejecuta el comando ```npm install```. Esto instalará todas las
    dependencias necesarias para ejecutar la aplicación.
-3. Ejecuta el comando composer install. Esto instalará todas las dependencias de PHP necesarias para la aplicación.
+3. Ejecuta el comando ```composer install```. Esto instalará todas las dependencias de PHP necesarias para la
+   aplicación.
 4. Configura la conexión a la base de datos en el archivo .env. Si no tienes configurado un servidor de base de datos,
    te recomendamos instalar XAMPP, que incluye MySQL y PHPMyAdmin.
-5. Ejecuta el comando ```php bin/console doctrine:schema:create```. Esto creará las tablas necesarias en la base de datos.
-6. Ejecuta el comando ```php bin/console doctrine:fixtures:load```. Esto cargará datos de prueba en la base de datos,
+> Puedes configurar la conexión a la base de datos de la siguiente manera:
+> * Clona el archivo '.env' y renómbralo a '.env.local'. A continuación, abre el archivo y configura la conexión a
+   la base de datos en la variable "DATABASE_URL".
+>> Ejemplo: DATABASE_URL="mysql://root:@127.0.0.1:3306/curso_intermedio?serverVersion=mariadb-10.4.27&charset=utf8mb4"
+5. Ejecuta el comando ```composer require symfony/runtime```. Esto instalará el paquete necesario para ejecutar la
+   aplicación.
+6. Ejecuta el comando ```php bin/console doctrine:schema:create```. Esto creará las tablas necesarias en la base de
+   datos.
+7. Ejecuta el comando ```php bin/console doctrine:fixtures:load```. Esto cargará datos de prueba en la base de datos,
    incluyendo un usuario con rol de administrador.
+8. Ejecuta el comando ```symfony server:start```. Esto iniciará el servidor web de Symfony.
 
 ## Cómo utilizar appTareas
 
