@@ -45,14 +45,23 @@ organizar tus tareas diarias. Para ello, sigue estos pasos:
 1. Para acceder a la aplicación, abre un navegador web y dirígete a la URL http://localhost:8000. Si todo ha ido bien,
    deberías ver la pantalla de inicio de sesión.
 2. Introduce las credenciales del usuario administrador que se ha creado en los datos de prueba. El correo electrónico
-   es admin@admin.com y la contraseña es admin.
+   es **admin@admin.com** y la contraseña es **admin**.
 3. Una vez que has iniciado sesión, puedes crear nuevas tareas desde la página principal de la aplicación.
-4. Si quieres ver todas las tareas existentes, puedes hacer clic en el botón "Ver todas las tareas". Desde ahí podrás
-   editar y borrar tareas, así como crear nuevas.
-5. Si quieres crear un usuario nuevo, haz clic en el botón "Registrar" y sigue las instrucciones.
+4. Puedes ver el listado de tareas existentes del usuario actual haciendo clic en el botón "Inicio" en la barra de
+   navegación.
+5. Si quieres crear un usuario nuevo, haz clic en el botón "Crear".
 
 ## Uso de roles en la aplicación
 
 En la aplicación, los roles se utilizan para controlar el acceso a las diferentes funcionalidades.
-Por ejemplo, los usuarios normales solo pueden ver, editar y borrar sus propias tareas, mientras que los usuarios con
-rol de administrador pueden hacer lo mismo con todas las tareas.
+* **USUARIOS**: solo pueden ver, editar y borrar sus propias tareas
+* **ADMINISTRADORES**: pueden ver, editar y borrar todas las tareas, así como crear nuevos usuarios. 
+* Además, pueden:
+  * cambiar el rol de los usuarios existentes
+  * asignar tareas a otros usuarios
+  * Desactivar y activar usuarios (Si un usuario es desactivado, no podrá iniciar sesión en la aplicación)
+  * Ver el listado de usuarios existentes
+  * Ver el listado, editar y crear nuevas Estados de tareas
+* Usuarios por defecto:
+  * **ADMIN**--> email: *admin@admin.com*, password: *admin*
+  * **USER**--> email: *user@user.com*, password: *user*
