@@ -1,0 +1,19 @@
+{
+    "name": "ivan/pokemon-app",
+    "description": "Aplicación web de Pokemon",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ivan"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^4.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}
