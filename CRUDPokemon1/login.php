@@ -20,10 +20,22 @@ if (isset($_POST['submit'])) {
         $result = $conn->query($sql);
 
         if ($result->rowCount() > 0) {
-            // los datos de inicio de sesión son correctos
-            $_SESSION['username'] = $username;
-            header('Location: index.php');
-            exit();
+            $sqlRol = "SELECT es_entrenador FROM ciudadanos WHERE nombre='$username' AND contraseña='$password'";
+
+            $resultRol = $conn->query($sqlRol);
+
+            if ($resultRol->rowCount() > 0) {
+                $row = $resultRol->fetch(PDO::FETCH_ASSOC);
+                if ($row['es_entrenador'] == 1) {
+                    $_SESSION['username'] = $username;
+                    header('Location: index.php');
+                    exit();
+                } else {
+                    $error = "No eres entrenador";
+                    header('Location: index.php');
+/*                    header('Location: indexEntrenadores.php');*/
+                }
+            }
         } else {
             // los datos de inicio de sesión son incorrectos
             $error = "Nombre de usuario o contraseña incorrectos";

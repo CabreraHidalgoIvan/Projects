@@ -7,27 +7,32 @@ if (isset($_POST['submit'])) {
         'message' => 'Ciudadano creado correctamente'
     ];
 
-    $config = include 'config.php';
-
-    try {
-        $dsn = 'mysql:host=' . $config['db']['host'] . ';dbname=' . $config['db']['name'];
-        $connection = new PDO($dsn, $config['db']['user'], $config['db']['pass'], $config['db']['options']);
-
-        $ciudadano = [
-            "nombre" => $_POST['nombre'],
-            "password" => $_POST['password'],
-            "dir" => $_POST['dir'],
-            "tlf" => $_POST['tlf']
-        ];
-
-        $stmt = "INSERT INTO ciudadanos (nombre, contraseña, direccion, telefono) VALUES (:nombre, :password, :dir, :tlf)";
-
-        $query = $connection->prepare($stmt);
-        $query->execute($ciudadano);
-
-    } catch (PDOException $error) {
+    if (empty($_POST['nombre']) || empty($_POST['password']) || empty($_POST['dir']) || empty($_POST['tlf'])) {
         $result['error'] = true;
-        $result['message'] = $error->getMessage();
+        $result['message'] = 'Todos los campos son obligatorios';
+    } else {
+        $config = include 'config.php';
+
+        try {
+            $dsn = 'mysql:host=' . $config['db']['host'] . ';dbname=' . $config['db']['name'];
+            $connection = new PDO($dsn, $config['db']['user'], $config['db']['pass'], $config['db']['options']);
+
+            $ciudadano = [
+                "nombre" => $_POST['nombre'],
+                "password" => $_POST['password'],
+                "dir" => $_POST['dir'],
+                "tlf" => $_POST['tlf']
+            ];
+
+            $stmt = "INSERT INTO ciudadanos (nombre, contraseña, direccion, telefono) VALUES (:nombre, :password, :dir, :tlf)";
+
+            $query = $connection->prepare($stmt);
+            $query->execute($ciudadano);
+
+        } catch (PDOException $error) {
+            $result['error'] = true;
+            $result['message'] = $error->getMessage();
+        }
     }
 }
 
@@ -71,7 +76,7 @@ if (isset($result)) {
                 </div>
                 <div class="form-group">
                     <label for="tlf">Teléfono</label>
-                    <input type="tel" name="tlf" id="tlf" class="form-control">
+                    <input type="number" name="tlf" id="tlf" class="form-control" maxlength="9" minlength="9">
                 </div>
                 <div class="form-group">
                     <input type="submit" name="submit" class="btn btn-primary" value="Enviar" href="index.php">

@@ -35,8 +35,6 @@ $titulo = isset($_POST['nombre']) ? 'Lista de ciudadanos (' . $_POST['nombre'] .
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <a href="registro.php"  class="btn btn-primary mt-4">Crear ciudadano</a>
-            <hr>
             <form method="post" class="form-inline">
                 <div class="form-group mr-3">
                     <input type="text" id="nombre" name="nombre" placeholder="Buscar por nombre" class="form-control">
