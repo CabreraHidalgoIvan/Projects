@@ -3,7 +3,7 @@
 require_once "connection.php";
 require_once "Ciudadano.php";
 
-class CiudadanoDAO
+#[AllowDynamicProperties] class CiudadanoDAO
 {
 
     public function __construct()
@@ -21,7 +21,7 @@ class CiudadanoDAO
 
     public function getById($id)
     {
-        $sql = "SELECT * FROM ciudadanos WHERE id = $id";
+        $sql = "SELECT * FROM ciudadanos WHERE id_ciudadano = $id";
         $result = mysqli_query($this->db, $sql);
         $ciudadano = mysqli_fetch_assoc($result);
         return $ciudadano;
